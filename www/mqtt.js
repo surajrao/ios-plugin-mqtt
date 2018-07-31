@@ -1,4 +1,4 @@
-cordova.define("ios-plugin-mqtt", function(require, exports, module) {
+//cordova.define("ios-plugin-mqtt", function(require, exports, module) {
                
    var exec = require('cordova/exec');
    
@@ -106,5 +106,5 @@ cordova.define("ios-plugin-mqtt", function(require, exports, module) {
    };
    
    
-});
+//});
 
