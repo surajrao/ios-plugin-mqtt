@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>mqtt</name>
     <js-module name="alipay" src="www/mqtt.js">
-        <clobbers target="cordova.plugins.CordovaMqTTPlugin"/>
+        <clobbers target="iosPluginMqtt"/>
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
