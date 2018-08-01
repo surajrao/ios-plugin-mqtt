@@ -10,6 +10,7 @@
 
 @interface MqttPlugin:CDVPlugin{
     NSString *callbackId;
+    NSString *callbackIdConnect;
 }
 -(void)test:(CDVInvokedUrlCommand*)command;
 -(void)connect:(CDVInvokedUrlCommand*)command;
