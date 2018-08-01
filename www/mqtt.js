@@ -80,9 +80,9 @@
        var topic = record.topic;
        var utctime = record.time;//utc秒数
        var message = record.message;
-       if(exports.listenMap&&exports.listenMap.length>0){
-           for(var i=0;i<exports.listenMap.length;i++){
-               var item = exports.listenMap[i];
+       if(listenMap&&listenMap.length>0){
+           for(var i=0;i<listenMap.length;i++){
+               var item = listenMap[i];
                var regStr = item.theme.replace("#","\\.*");
                var reg = new RegExp(regStr);
                if(reg.test(topic)==true){
