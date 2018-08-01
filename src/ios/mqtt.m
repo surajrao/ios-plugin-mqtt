@@ -48,7 +48,7 @@
 -(void)connect:(CDVInvokedUrlCommand *)command{
     
     //将mqtt连接配置参数写入app配置文件config.xml,通过环境变量获取使用
-    callbackId = command.callbackId;
+    callbackIdConnect = command.callbackId;
     
     //将连接参数通过前端传递过来
     NSString* username = [command.arguments objectAtIndex:0];
@@ -65,21 +65,21 @@
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:resultDic];
         //保持回调状态
         [pluginResult setKeepCallbackAsBool:YES];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackIdConnect];
     } :^(NSDictionary *resultDic) {
         NSLog(@"推送数据：%@",resultDic);
         CDVPluginResult* pluginResult;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:resultDic];
         //保持回调状态
         [pluginResult setKeepCallbackAsBool:YES];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackIdConnect];
     } :^() {
         NSLog(@"连接断开");
         CDVPluginResult* pluginResult;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:[NSDictionary dictionaryWithObjectsAndKeys:@"-1",@"code", nil] ];
         //保持回调状态
         [pluginResult setKeepCallbackAsBool:YES];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackIdConnect];
         
         //重新建立连接
         [self connect:command];
